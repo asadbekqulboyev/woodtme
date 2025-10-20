@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fff;
+  color: #191a19;
+  font-family: "Montserrat";
+  font-size: 15.32px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 24px;
+}
+
+.container {
+  max-width: 1284px;
+  margin: 0 auto;
+}/*# sourceMappingURL=style.css.map */
