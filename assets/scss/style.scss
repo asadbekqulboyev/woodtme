@@ -35,6 +35,9 @@ body {
   font-style: normal;
   font-weight: 600;
   line-height: 40px;
+  @media (max-width: 992px) {
+    font-size: 26.4px;
+  }
   span {
     color: #3b945f;
   }

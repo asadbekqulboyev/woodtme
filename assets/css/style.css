@@ -386,7 +386,11 @@
     width: calc(100% + 40px);
     margin-left: -20px;
     padding-left: 20px;
+    padding-right: 20px;
   }
+}
+.hero__content_list::-webkit-scrollbar {
+  display: none;
 }
 .hero__content_item {
   border-radius: 8px;
@@ -454,10 +458,23 @@
   margin-top: 80px;
   padding: 70px 0 80px 0;
 }
+@media (max-width: 992px) {
+  .steps {
+    padding: 48px 0 40px;
+    margin-top: 56px;
+  }
+}
 .steps_top {
   display: flex;
   justify-content: space-between;
   margin-top: 40px;
+}
+@media (max-width: 992px) {
+  .steps_top {
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 28px;
+  }
 }
 .steps_top_left {
   color: #d3f0de;
@@ -467,8 +484,20 @@
   line-height: 32px;
   width: calc(57% - 20px);
 }
+@media (max-width: 992px) {
+  .steps_top_left {
+    line-height: 24px;
+    width: 100%;
+    font-size: 18px;
+  }
+}
 .steps_top_right {
   width: calc(43% - 20px);
+}
+@media (max-width: 992px) {
+  .steps_top_right {
+    width: 100%;
+  }
 }
 .steps_top_right h3 {
   color: #f5faf7;
@@ -477,29 +506,69 @@
   font-weight: 500;
   line-height: 32px;
 }
+@media (max-width: 992px) {
+  .steps_top_right h3 {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
 .steps_top_right p {
   color: #d3f0de;
   margin-top: 12px;
+}
+@media (max-width: 992px) {
+  .steps_top_right p {
+    font-size: 15.32px;
+  }
 }
 .steps_list {
   margin-top: 28px;
   display: flex;
   flex-direction: column;
-  /* Responsivlik */
+}
+@media (max-width: 992px) {
+  .steps_list {
+    margin-top: 20px;
+    padding-top: 0;
+  }
 }
 .steps_list .steps_item {
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid transparent;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
   overflow: hidden;
   transition: all 0.3s ease;
   opacity: 0.5;
   cursor: pointer;
   padding: 20px;
 }
+@media (max-width: 992px) {
+  .steps_list .steps_item {
+    padding: 12px;
+  }
+}
+.steps_list .steps_item svg {
+  transition: all 0.3s ease;
+  width: 16px;
+  flex: 0 0 auto;
+}
 .steps_list .steps_item.active {
-  border-color: #3ee78b;
-  background: rgba(255, 255, 255, 0.08);
+  border-color: #bed4c7;
+  background: #5c7164;
+  opacity: 1;
+  padding-right: 0;
+}
+.steps_list .steps_item.active svg {
+  transform: rotate(180deg);
+  margin-right: 20px;
+  flex: 0 0 auto;
+}
+@media (max-width: 992px) {
+  .steps_list .steps_item.active svg {
+    margin-right: 12px;
+  }
+}
+.steps_list .steps_item.active svg path {
+  stroke: #41cc79;
 }
 .steps_list .steps_item:hover {
   border-color: #3ee78b;
@@ -517,6 +586,11 @@
   align-items: flex-start;
   gap: 20px;
 }
+@media (max-width: 992px) {
+  .steps_list .steps_item .steps_header_left {
+    gap: 12px;
+  }
+}
 .steps_list .steps_item .steps_header .steps_number {
   color: #f5faf7;
   font-size: 12px;
@@ -531,82 +605,123 @@
   font-weight: 500;
   line-height: 32px;
 }
+@media (max-width: 992px) {
+  .steps_list .steps_item .steps_header .steps_title {
+    font-size: 18px;
+    line-height: normal;
+  }
+}
 .steps_list .steps_item .steps_body {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
   transition: all 0.5s ease;
-  padding: 0 24px;
 }
 .steps_list .steps_item .steps_body .steps_text {
   color: #d3f0de;
   padding-bottom: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: 10px;
+  color: #d3f0de;
+  font-size: 15.32px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 24px;
+  padding-right: 20px;
+}
+@media (max-width: 992px) {
+  .steps_list .steps_item .steps_body .steps_text {
+    padding-bottom: 0;
+  }
 }
 .steps_list .steps_item .steps_body .steps_text p {
   margin-top: 20px;
 }
 .steps_list .steps_item .steps_body .steps_text ul {
-  margin-top: 10px;
+  margin-top: 12px;
   list-style: none;
   padding: 0;
 }
 .steps_list .steps_item .steps_body .steps_text ul li {
   position: relative;
   padding-left: 18px;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 .steps_list .steps_item .steps_body .steps_text ul li::before {
   content: "•";
   position: absolute;
   left: 0;
   color: #3ee78b;
+  width: 8px;
+  height: 8px;
+  font-size: 59px;
 }
 .steps_list .steps_item .steps_body .steps_images {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
   gap: 12px;
+  width: calc(50% + 12px);
+  margin-right: -20px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+@media (max-width: 992px) {
+  .steps_list .steps_item .steps_body .steps_images {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+.steps_list .steps_item .steps_body .steps_images::-webkit-scrollbar {
+  background: #4d6657;
+  height: 4px;
+  border-radius: 16px;
+}
+.steps_list .steps_item .steps_body .steps_images::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 16px;
 }
 .steps_list .steps_item .steps_body .steps_images img {
   width: 49%;
-  border-radius: 10px;
   object-fit: cover;
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.steps_list .steps_item .steps_body_flex {
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 992px) {
+  .steps_list .steps_item .steps_body_flex {
+    flex-direction: column;
+  }
+}
+.steps_list .steps_item .steps_body_flex .steps_text {
+  width: calc(50% - 12px);
+}
+@media (max-width: 992px) {
+  .steps_list .steps_item .steps_body_flex .steps_text {
+    width: 100%;
+  }
 }
 .steps_list .steps_item.active .steps_body {
   max-height: 800px;
   opacity: 1;
   padding-bottom: 24px;
 }
-@media (max-width: 768px) {
-  .steps_list {
-    padding: 60px 0;
+@media (max-width: 992px) {
+  .steps_list .steps_item.active .steps_body {
+    padding-bottom: 0px;
   }
+}
+@media (max-width: 768px) {
   .steps_list .process_title {
     font-size: 28px;
   }
-  .steps_list .steps_header {
-    flex-wrap: wrap;
-    padding: 16px;
-  }
-  .steps_list .steps_body {
-    padding: 0 16px;
-  }
   .steps_list .steps_images {
-    flex-direction: column;
-  }
-  .steps_list .steps_images img {
-    width: 100%;
+    margin-right: -20px;
+    margin-top: 12px;
   }
 }
 @media (max-width: 480px) {
   .steps_list .process_title {
     font-size: 24px;
-  }
-  .steps_list .steps_title {
-    font-size: 16px;
   }
   .steps_list .steps_number {
     font-size: 18px;
@@ -648,6 +763,11 @@ body {
   font-style: normal;
   font-weight: 600;
   line-height: 40px;
+}
+@media (max-width: 992px) {
+  .section_title {
+    font-size: 26.4px;
+  }
 }
 .section_title span {
   color: #3b945f;
