@@ -1,0 +1,99 @@
+.hero {
+  &_top {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 32px;
+    @media (max-width: 992px) {
+      flex-direction: column;
+      gap: 20px;
+    }
+    &_left {
+      width: calc(57% - 10px);
+      @media (max-width: 1200px) {
+        width: calc(50% - 10px);
+      }
+      @media (max-width: 992px) {
+        width: 100%;
+      }
+      h1 {
+        color: #191a19;
+        font-size: 45.7px;
+        font-weight: 600;
+        line-height: 48px;
+        text-transform: uppercase;
+        @media (max-width: 1200px) {
+          font-size: 32px;
+        }
+        @media (max-width: 992px) {
+          font-size: 26.4px;
+          line-height: 32px;
+          span {
+            display: none;
+          }
+        }
+      }
+    }
+    &_right {
+      width: calc(43% - 10px);
+      @media (max-width: 1200px) {
+        width: calc(50% - 10px);
+      }
+      @media (max-width: 992px) {
+        width: 100%;
+      }
+      .call_title {
+        color: #191a19;
+        font-size: 22.64px;
+        font-weight: 500;
+        line-height: 32px;
+        padding-right: 30px;
+        @media (max-width: 1200px) {
+          font-size: 20px;
+          padding-right: 24px;
+        }
+        @media (max-width: 992px) {
+          font-size: 15.32px;
+          font-weight: 600;
+          line-height: 20px;
+        }
+        span {
+          color: #3b945f;
+        }
+      }
+      .call_buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: flex-start;
+        margin-top: 20px;
+        @media (max-width: 768px) {
+          flex-direction: column;
+          gap: 12px;
+        }
+        .call__button {
+          display: flex;
+          padding: 12px 32px;
+          justify-content: center;
+          align-items: center;
+          background: #3b945f;
+          color: #f5faf7;
+          font-size: 15.3px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 24px;
+          text-decoration: none;
+          @media (max-width: 1200px) {
+            font-size: 14px;
+          }
+          @media (max-width: 992px) {
+            font-size: 15.32px;
+          }
+          &.no_bg {
+            border: 1px solid #3b945f;
+            background: #fff;
+            color: #3b945f;
+          }
+        }
+      }
+    }
+  }
+}
