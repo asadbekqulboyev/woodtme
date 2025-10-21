@@ -6,6 +6,7 @@
 }
 @import "header";
 @import "hero";
+@import "steps";
 body {
   background: #fff;
   color: #191a19;
@@ -15,11 +16,29 @@ body {
   font-weight: 300;
   line-height: 24px;
 }
+.wrapper {
+  overflow: hidden;
+}
 .container {
   max-width: 1284px;
   margin: 0 auto;
-  padding: 0 20px;
+  @media (max-width: 1300px) {
+    padding: 0 20px;
+  }
   @media (max-width: 992px) {
     max-width: 768px;
+  }
+}
+.section_title {
+  color: #191a19;
+  font-size: 37.44px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px;
+  span {
+    color: #3b945f;
+  }
+  &.light {
+    color: #f5faf7;
   }
 }
