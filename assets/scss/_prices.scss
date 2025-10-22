@@ -1,0 +1,97 @@
+.prices {
+  padding: 70px 0;
+  &_items {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+  &_item {
+    width: calc(33.33% - 6px);
+    border: 1px solid #bed4c7;
+    transition: all 0.3s linear;
+    cursor: pointer;
+    &:hover {
+      border-radius: 12px;
+      border-color: #41cc79;
+      overflow: hidden;
+      a {
+        background: #41cc79;
+      }
+    }
+    &_top {
+      padding: 24px;
+      background: #5c7164;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .number {
+        color: #f5faf7;
+        font-size: 29.96px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 36px;
+      }
+      span {
+        color: #a3b8ab;
+      }
+    }
+    &_body {
+      padding: 12px 24px 24px 24px;
+      .prices_item_content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        span {
+          color: #191a19;
+          font-size: 15.32px;
+          font-style: normal;
+          font-weight: 300;
+          line-height: 24px;
+        }
+        p {
+          overflow: hidden;
+          color: #151a16;
+          text-overflow: ellipsis;
+          font-size: 22.64px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 32px;
+        }
+      }
+      .flex_content {
+        display: flex;
+        justify-content: space-between;
+        gap: 0px;
+        .prices_item_content {
+          padding-top: 4px;
+          padding-bottom: 16px;
+          width: 50%;
+          &:last-child {
+            padding-left: 24px;
+          }
+        }
+      }
+    }
+    .prices_item_bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px;
+      span {
+        color: #191a19;
+        font-size: 29.96px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 36px;
+      }
+      a {
+        border: 1px solid #3b945f;
+        width: 88px;
+        height: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
