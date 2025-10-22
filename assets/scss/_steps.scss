@@ -53,6 +53,19 @@
       }
     }
   }
+  &_content {
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: 992px) {
+      flex-wrap: wrap;
+    }
+    .steps_list {
+      width: calc(50% - 6px);
+      @media (max-width: 992px) {
+        width: 100%;
+      }
+    }
+  }
   &_list {
     margin-top: 28px;
     display: flex;

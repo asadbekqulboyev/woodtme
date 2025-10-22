@@ -3,15 +3,24 @@
     margin-top: 40px;
     display: flex;
     justify-content: space-between;
+    a {
+      width: calc(50% - 4px);
+      line-height: 0;
+      img {
+        width: 100%;
+      }
+    }
   }
   &_images {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 12px;
+    gap: 12px 0;
     a {
       display: block;
       width: calc(25% - 6px);
+      line-height: 0;
       img {
         width: 100%;
       }
