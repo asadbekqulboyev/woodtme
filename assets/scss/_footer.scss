@@ -3,16 +3,28 @@
   .container {
     padding: 70px 0;
     position: relative;
+    @media (max-width: 992px) {
+      padding: 48px 20px 56px;
+    }
   }
   &_top {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    @media (max-width: 992px) {
+      flex-direction: column;
+      gap: 20px;
+    }
   }
   &_contact {
     display: flex;
     align-items: center;
     gap: 12px;
+    @media (max-width: 992px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+    }
     .footer_item {
       display: flex;
       flex-direction: column;
@@ -25,6 +37,9 @@
         line-height: 32px;
         text-decoration: none;
         transition: all 0.2s linear;
+        @media (max-width: 992px) {
+          font-size: 18px;
+        }
       }
       a:hover {
         color: #41cc79;
@@ -79,11 +94,25 @@
     top: 0;
     left: 0;
     width: 100%;
+    &.desctop {
+      @media (max-width: 992px) {
+        display: none;
+      }
+    }
+    &.mobile {
+      display: none;
+      @media (max-width: 992px) {
+        display: block;
+      }
+    }
   }
   &_bottom {
     display: flex;
     flex-direction: column;
     gap: 23px;
+    @media (max-width: 992px) {
+      margin-top: 20px;
+    }
     a {
       color: rgba(233, 242, 236, 0.45);
       font-size: 12px;
@@ -102,6 +131,14 @@
       display: flex;
       gap: 109px;
       align-items: center;
+      @media (max-width: 992px) {
+        gap: 30px;
+      }
+      @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+      }
       span {
         color: rgba(233, 242, 236, 0.45);
         font-size: 12px;
@@ -113,6 +150,16 @@
         display: flex;
         align-items: center;
         gap: 14px;
+        @media (max-width: 768px) {
+          flex-direction: column;
+          gap: 12px;
+          align-items: flex-start;
+        }
+        li {
+          @media (max-width: 768px) {
+            line-height: normal;
+          }
+        }
         a {
           color: rgba(233, 242, 236, 0.45);
           font-size: 12px;

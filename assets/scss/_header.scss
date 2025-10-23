@@ -2,6 +2,11 @@
   border-bottom: 1px solid #e4ede7;
   background: #f5faf7;
   padding: 20px 0 17px 0;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 222;
   @media (max-width: 992px) {
     padding: 0 0 8px;
   }
@@ -141,7 +146,6 @@
       left: auto;
       right: -100%;
       top: 89px;
-      background: #00000000;
 
       .menu__list {
         flex-direction: column;
@@ -152,12 +156,7 @@
     }
     transition: all 0.2s linear;
     &.active {
-      background: linear-gradient(
-          0deg,
-          rgba(21, 26, 23, 0.8) 0%,
-          rgba(21, 26, 23, 0.8) 100%
-        ),
-        lightgray 0px -0.397px / 100% 327.862% no-repeat;
+      background: rgba(21, 26, 23, 0.8) 0%;
       right: 0;
     }
   }

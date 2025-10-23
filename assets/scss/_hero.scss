@@ -87,6 +87,9 @@
           @media (max-width: 992px) {
             font-size: 15.32px;
           }
+          &:not(.no_bg) {
+            min-width: 253px;
+          }
           &.no_bg {
             border: 1px solid #3b945f;
             background: #fff;

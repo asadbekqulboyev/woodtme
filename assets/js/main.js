@@ -130,6 +130,15 @@ function calculateDrying() {
     // ✅ To‘g‘ri HTML struktura bilan chiqish
     const resultHTML = `
         <div class="result-content">
+        ${
+          $(window).width() < 992
+            ? `
+          <div class="exit_modal">
+              <img src="assets/images/close.svg" alt="">
+          </div>
+        `
+            : ""
+        }
           <h3 class="result-title" id="resultTitle">
             Расчет на ${ukls} м³ (${woodTypeText})
           </h3>
@@ -174,6 +183,9 @@ function calculateDrying() {
     document.getElementById("resultTitle").innerHTML = "";
     document.getElementById("resultText").innerHTML = errorHTML;
     document.getElementById("result").style.display = "block";
+  }
+  if ($(window).width() < 992) {
+    $(".calculation_content_result").fadeIn();
   }
 }
 function clearForm() {
@@ -274,7 +286,7 @@ function calculate() {
 
   // Проверка на пустые поля
   if (!lengthInput || !widthInput) {
-    alert("Пожалуйста, заполните все поля!");
+    $(".calculation_content_result").fadeOut();
     return;
   }
 
@@ -384,6 +396,7 @@ function calculate() {
 
   // Отображаем результат
   showResult(finalVolume, length, width, lumberLength);
+  $(".calculation_content_result").fadeIn();
 }
 
 // Добавляем обработчик для нажатия Enter
@@ -403,10 +416,10 @@ $(".calculation_buttons a").click(function () {
   $(".form_step").eq($(this).index()).fadeIn();
   if ($(this).index() === 1) {
     $(".result-section").fadeIn();
-    $(".result-block").fadeOut();
+    $(".result-block").fadeOut(0);
   }
   if ($(this).index() === 0) {
-    $(".result-section").fadeOut();
+    $(".result-section").fadeOut(0);
     $(".result-block").fadeIn();
   }
 });
@@ -436,4 +449,35 @@ Fancybox.bind('[data-fancybox="video"]', {
     width: 900,
     height: 506,
   },
+});
+
+$(document).on("click", ".exit_modal", function () {
+  $(".calculation_content_result").fadeOut();
+});
+$(".calculate-btn.btn1").on("click", function (e) {
+  calculateDrying();
+});
+$(".calculate-btn.btn2").on("click", function (e) {
+  calculate();
+});
+$(document).on("click", ".calculation_content_result", function () {
+  $(this).fadeOut(200); // fadeOut bilan yopish
+});
+$(document).on("click", ".result-block", function (event) {
+  event.stopPropagation();
+});
+
+if (localStorage.getItem("cookieAccepted") === "true") {
+  $(".cookie_banner").addClass("hidden");
+}
+
+// Qabul qilish tugmasi
+$(".cookie_btn").click(function () {
+  localStorage.setItem("cookieAccepted", "true");
+  $(".cookie_banner").addClass("hidden");
+});
+
+// Yopish tugmasi
+$(".cookie_close").click(function () {
+  $(".cookie_banner").addClass("hidden");
 });
