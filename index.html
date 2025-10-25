@@ -58,7 +58,6 @@
                             <div class="hero_top_left">
                                 <h1 class="hero__title">Инфракрасная <span>электрическая</span> сушилка древесины — УКЛС
                                 </h1>
-
                             </div>
                             <div class="hero_top_right">
                                 <div class="call_title">
@@ -66,7 +65,9 @@
                                     с конвективными сушками!
                                 </div>
                                 <div class="call_buttons">
-                                    <a href="#" class="call__button">Перезвоним за 5 минут</a>
+                                    <!--Перезвоним за 5 минут CLASS--.login_open   -->
+                                    <!--Перезвоните мне CLASS--.register_open   -->
+                                    <a href="#" class="call__button login_open">Перезвоним за 5 минут</a>
                                     <a href="#" class="call__button no_bg">Оформить заявку</a>
                                 </div>
 
@@ -440,7 +441,22 @@
                             <div class="calculation_form">
                                 <div class="form_step" id="spet1">
                                     <h2 class="section_title">Калькулятор
-                                        <span>энергозатрат</span><img src="assets/images/info.svg" alt="">
+                                        <span>энергозатрат</span>
+                                        <span class="info"><img src="assets/images/info.svg" alt=""></span>
+                                        <div class="tiltop">
+                                            <div class="close">
+                                                <img src="assets/images/close.svg" alt="">
+                                            </div>
+                                            <h4 class="tiltop_title">
+                                                Расход электроэнергии зависит от
+                                            </h4>
+                                            <p>породы древесины и её твёрдости (мягкая или твёрдая)</p>
+                                            <ul>
+                                                <li>породы древесины и её твёрдости (мягкая или твёрдая)</li>
+                                                <li>начальной влажности материала,
+                                                    требуемой конечной влажности</li>
+                                            </ul>
+                                        </div>
                                     </h2>
 
                                     <form id="woodCalculator">
@@ -489,14 +505,13 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="electricityCost" class="input_title">Стоимость 1-го кВт⋅ч
-                                                    <span>в
-                                                        вашем
-                                                        регионе</span></label>
+                                                    <span>в вашем регионе</span></label>
                                                 <div class="input-group">
                                                     <input type="number" id="electricityCost" class="form-select last"
                                                         step="0.01" min="0.01" max="100" value="5"
                                                         placeholder="Введите стоимость кВт⋅ч">
                                                     <span class="input-suffix">₽</span>
+                                                    <div class="error_input"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -510,7 +525,20 @@
                                 </div>
                                 <div class="form_step" id="spet2">
                                     <h2 class="section_title">Калькулятор
-                                        <span>помещения</span><img src="assets/images/info.svg" alt="">
+                                        <span>помещения</span>
+                                        <img src="assets/images/info.svg" alt="">
+                                        <div class="tiltop">
+                                            <div class="close"><img src="assets/images/close.svg" alt=""></div>
+                                            <h4 class="tiltop_title">
+                                                Расход электроэнергии зависит от
+                                            </h4>
+                                            <p>породы древесины и её твёрдости (мягкая или твёрдая)</p>
+                                            <ul>
+                                                <li>породы древесины и её твёрдости (мягкая или твёрдая)</li>
+                                                <li>начальной влажности материала,
+                                                    требуемой конечной влажности</li>
+                                            </ul>
+                                        </div>
                                     </h2>
                                     <div class="input-section">
                                         <div class="input-fields">
@@ -534,25 +562,25 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="form-row inputs">
-                                                <div>
+                                                <div class="w-50">
                                                     <label for="length " class="input_title">Длина помещения
                                                         (м):</label>
                                                     <div class="input-group">
-
                                                         <input class="form-select last" type="number" id="length"
                                                             step="0.1" min="0" placeholder="от 5 до 30 м">
+                                                        <div class="result_details_error"></div>
                                                         <span class="input-suffix">м</span>
                                                     </div>
                                                 </div>
 
-                                                <div class="input-group">
+                                                <div class="input-group w-50">
                                                     <label for="width" class="input_title">Ширина помещения
                                                         (м):</label>
                                                     <div class="input-group_child">
                                                         <input type="number" id="width" step="0.1" min="0"
                                                             placeholder="от 1.5 до 12 м" class="form-select last">
+                                                        <div class="error_size"></div>
                                                         <span class="input-suffix">м</span>
                                                     </div>
                                                 </div>
@@ -565,14 +593,11 @@
 
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         <div class="calculation_content_result">
-
-                            <div id="result" class="result-block">
-
-                                <div class="result-content">
+                            <div class="result-block">
+                                <div class="result-content" id="result">
                                     <h3 class="result-title" id="resultTitle">Расчет на 2,5 м³ (Сосна)</h3>
                                     <div class="result-text" id="resultText">
                                         <div class="result-white">
@@ -603,15 +628,18 @@
                                 </div>
                             </div>
                             <div class="result-section show">
+                                <div class="exit_modal">
+                                    <img src="assets/images/close.svg" alt="">
+                                </div>
                                 <div class="result-title" style="display: block;">Возможный объем для сушки
                                 </div>
                                 <div class="result-line">
-                                    <span class="result-value" id="result"
+                                    <span class="result-value" id="result_sm"
                                         style="display: inline; transform: scale(1);">14</span>
                                     <span class="result-unit" style="display: inline;">м³</span>
                                 </div>
-                                <div class="error-message" id="error-message"></div>
-                                <div class="result-details" id="result-details">В помещении 12×5 м возможно сушить 5 м³
+                                <!-- <div class="error-message" id="error-message"></div> -->
+                                <div class="result-details" id="result-details">В помещении 12×5 м возможно сушить 5 м³
                                     пиломатериала длиной 3 м.</div>
                             </div>
                         </div>
@@ -633,7 +661,6 @@
                         </div>
                     </div>
                 </div>
-
             </section>
             <section class="gallery">
                 <div class="container">
@@ -1257,7 +1284,7 @@
                                 </div>
                                 <div class="phone_wrapper">
                                     <div class="input_title">Телефон<span>*</span></div>
-                                    <input id="phone" type="tel" placeholder="XXX XXX-XX-XX">
+                                    <input class="phone" type="tel" placeholder="XXX XXX-XX-XX">
                                 </div>
                             </div>
                             <div class="form_flex full">
@@ -1359,8 +1386,99 @@
         <div class="cookie_close">&times;</div>
     </div>
 
+    <div class="modal login">
+        <div class="modal_content">
+            <div class="modal_title">Перезвоним за 5 минут</div>
+            <p>Есть вопросы? Проконсультируем по телефону. </p>
+            <div class="exit_modal">
+                <img src="assets/images/close.svg" alt="">
+            </div>
+            <div class="modal_inputs">
+                <div class="modal_input_item">
+                    <div class="input_title">Телефон<span>*</span></div>
+                    <input class="phone " type="tel" placeholder="XXX XXX-XX-XX">
+                </div>
+            </div>
+            <div class="modal_bottom">
+                <!-- adclass .no_send validate error -->
+                <!-- adclass .loadsend loading -->
+                <button class="modal_btn ">
+                    <span class="send">Перезвоните мне</span>
+                    <div class="load"><img src="assets/images/robot.svg" alt="">
+                        <span>Антибот проверка...</span>
+                    </div>
+                </button>
+                <p>Нажимая на кнопку, вы принимаете условия <a href="#">обработки персональных данных</a> и 
+                    <a href="./policy.html">политику конфиденциальности.</a>
+                </p>
+                <span class="erorrmsg">Неверный формат номера. Используйте: +7 XXX XXX-XX-XX.</span>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="modal sucees">
+        <div class="sucees_content">
+            <div class="exit_modal">
+                <img src="assets/images/close.svg" alt="">
+            </div>
+            <h2 class="modal_title">Спасибо! </h2>
+            <h3>Ваша заявка принята!</h3>
+            <p>Мы скоро перезвоним в рабочее время* <br>
+                на номер: +7 981 123-45-67</p>
+            <p>*пн-сб с 08:30 до 19:30 (Уральское время, UTC+5)</p>
+        </div>
+    </div>
+    <div class="modal register">
+        <div class="modal_content">
+            <div class="modal_title">Оформить заявку</div>
+            <p>Мы свяжемся с вами в рабочее время.</p>
+            <div class="exit_modal">
+                <img src="assets/images/close.svg" alt="">
+            </div>
+            <div class="modal_inputs">
+                <div class="modal_inputs_flex">
+                    <div class="modal_input_item">
+                        <div class="input_title">Имя<span>*</span></div>
+                        <input type="text" placeholder="Введите свое имя">
+                    </div>
+                    <div class="modal_input_item">
+                        <div class="input_title">Телефон<span>*</span></div>
+                        <input class="phone " type="tel" placeholder="XXX XXX-XX-XX">
+                    </div>
+                </div>
+                <div class="modal_input_item email">
+                    <div class="input_title">Email<p>по желанию</p>
+                    </div>
+                    <input type="email" placeholder="example@mail.com">
+                </div>
+                <div class="modal_input_item bottom">
+                    <div class="input_title">Что вас интересует</div>
+                    <textarea placeholder="example@mail.com"></textarea>
+                </div>
+            </div>
+            <div class="modal_bottom">
+                <!-- adclass .no_send validate error -->
+                <!-- adclass .loadsend loading -->
+                <button class="modal_btn ">
+                    <span class="send">Перезвоните мне</span>
+                    <div class="load"><img src="assets/images/robot.svg" alt="">
+                        <span>Антибот проверка...</span>
+                    </div>
+                </button>
+                <p>Нажимая на кнопку, вы принимаете условия <a href="#">обработки персональных данных</a> и 
+                    <a href="./policy.html">политику конфиденциальности.</a>
+                </p>
+                <span class="erorrmsg">Неверный формат номера. Используйте: +7 XXX XXX-XX-XX.</span>
+
+            </div>
+        </div>
+
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
     <script src="./assets/js/main.js"></script>
 </body>

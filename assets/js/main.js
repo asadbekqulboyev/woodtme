@@ -13,6 +13,7 @@ $(".steps_header").on("click", function () {
   }
 });
 // calculation
+
 // Данные по расходу электроэнергии и циклам сушки
 const dryingData = {
   // Свежепил до Столярной влажности
@@ -83,18 +84,20 @@ function calculateDrying() {
       ].text;
 
     const electricityCostValue = parseFloat(electricityCost);
+
     if (
       !electricityCost ||
       electricityCostValue <= 0 ||
       electricityCostValue > 100
     ) {
       const errorHTML = `
-          <div style="text-align: center; color: #721c24; background: #f8d7da; padding: 15px; border-radius: 8px; border: 1px solid #f5c6cb;">
-            <strong>Ошибка ввода</strong><br>
+          <div>
             Стоимость электроэнергии должна быть больше нуля и не больше 100 руб. (например: 3,5 или 5,2 руб.)
           </div>`;
       document.getElementById("resultTitle").innerHTML = "";
-      document.getElementById("resultText").innerHTML = errorHTML;
+      $(".error_input").fadeIn();
+      $(".form-select.last").addClass("errors");
+      $(".error_input").html(errorHTML);
       document.getElementById("result").style.display = "block";
       return;
     }
@@ -128,6 +131,8 @@ function calculateDrying() {
     const totalCost = Math.round(totalKwh * electricityCostValue);
 
     // ✅ To‘g‘ri HTML struktura bilan chiqish
+    $(".error_input").fadeOut(10);
+    $(".form-select.last").removeClass("errors");
     const resultHTML = `
         <div class="result-content">
         ${
@@ -186,6 +191,7 @@ function calculateDrying() {
   }
   if ($(window).width() < 992) {
     $(".calculation_content_result").fadeIn();
+    $(".calculation_content_result").css("display", "block !important");
   }
 }
 function clearForm() {
@@ -221,7 +227,7 @@ function updateLengthPlaceholder() {
 
 function showError(message) {
   const resultSection = document.querySelector(".result-section");
-  const errorMessage = document.getElementById("error-message");
+  // const errorMessage = document.getElementById("error-message");
   const resultText = document.querySelector(".result-text");
   const resultValue = document.getElementById("result");
   const resultUnit = document.querySelector(".result-unit");
@@ -235,16 +241,18 @@ function showError(message) {
     resultText.style.display = "none";
     resultValue.style.display = "none";
     resultUnit.style.display = "none";
-    errorMessage.textContent = message;
-    errorMessage.classList.add("show");
+    $(".error_size").text(message);
+    $(".error_size").fadeIn();
+    $(".error_size").prev().addClass("errors");
   } else {
     // Для других ошибок
     resultText.textContent = "Ваше помещение не подходит";
     resultText.style.display = "block";
     resultValue.style.display = "none";
     resultUnit.style.display = "none";
-    errorMessage.textContent = message;
-    errorMessage.classList.add("show");
+    $(".error_size").text(message);
+    $(".error_size").fadeIn();
+    $(".error_size").prev().addClass("errors");
   }
 
   resultDetails.textContent = "";
@@ -252,9 +260,8 @@ function showError(message) {
 
 function showResult(volume, length, width, lumberLength) {
   const resultSection = document.querySelector(".result-section");
-  const errorMessage = document.getElementById("error-message");
   const resultText = document.querySelector(".result-text");
-  const resultValue = document.getElementById("result");
+  const resultValue = document.getElementById("result_sm");
   const resultUnit = document.querySelector(".result-unit");
   const resultDetails = document.getElementById("result-details");
 
@@ -265,8 +272,9 @@ function showResult(volume, length, width, lumberLength) {
   resultText.style.display = "block";
   resultValue.style.display = "inline";
   resultUnit.style.display = "inline";
-  errorMessage.classList.remove("show");
-
+  // errorMessage.classList.remove("show");
+  $(".error_size").fadeOut();
+  $(".error_size").prev().removeClass("errors");
   resultValue.textContent = volume;
   resultDetails.textContent = `В помещении ${length} × ${width} м возможно сушить ${volume} м³ пиломатериала длиной ${lumberLength} м.`;
 
@@ -286,7 +294,6 @@ function calculate() {
 
   // Проверка на пустые поля
   if (!lengthInput || !widthInput) {
-    $(".calculation_content_result").fadeOut();
     return;
   }
 
@@ -317,14 +324,26 @@ function calculate() {
   // Проверяем соответствие длины помещения выбранной длине пиломатериала
   if (!errorMessage) {
     if (lumberLength === 3 && length < 3.5) {
-      errorMessage =
-        "Для сушки 3-метрового пиломатериала минимальная длина помещения должна быть 3,5 метра.";
+      $(".result_details_error").text(
+        "Для сушки 3-метрового пиломатериала минимальная длина помещения должна быть 3,5 метра."
+      );
+      $(".result_details_error").fadeIn();
+      $(".result_details_error").prev().addClass("errors");
     } else if (lumberLength === 4 && length < 5) {
-      errorMessage =
-        "Для сушки 4-метрового пиломатериала минимальная длина помещения должна быть 5 метров.";
+      $(".result_details_error").text(
+        "Для сушки 4-метрового пиломатериала минимальная длина помещения должна быть 5 метров."
+      );
+      $(".result_details_error").fadeIn();
+      $(".result_details_error").prev().addClass("errors");
     } else if (lumberLength === 6 && length < 7) {
-      errorMessage =
-        "Для сушки 6-метрового пиломатериала минимальная длина помещения должна быть 7 метров.";
+      $(".result_details_error").text(
+        "Для сушки 6-метрового пиломатериала минимальная длина помещения должна быть 7 метров."
+      );
+      $(".result_details_error").fadeIn();
+      $(".result_details_error").prev().addClass("errors");
+    } else {
+      $(".result_details_error").fadeOut();
+      $(".result_details_error").prev().removeClass("errors");
     }
   }
 
@@ -424,14 +443,23 @@ $(".calculation_buttons a").click(function () {
   }
 });
 // int tel
-const input = document.querySelector("#phone");
-const iti = window.intlTelInput(input, {
-  initialCountry: "ru", // 🇺🇿 O‘zbekiston bayrog‘i
-  preferredCountries: ["uz", "ru", "us"],
-  separateDialCode: true, // kodni alohida chiqarish
-  utilsScript:
-    "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
-});
+// const input = document.querySelector("#phone");
+// const iti = window.intlTelInput(input, {
+//   initialCountry: "ru", // 🇺🇿 O‘zbekiston bayrog‘i
+//   preferredCountries: ["uz", "ru", "us"],
+//   separateDialCode: true, // kodni alohida chiqarish
+//   utilsScript:
+//     "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+// });
+// $("input.phone").each(function () {
+//   window.intlTelInput(this, {
+//     initialCountry: "ru", // 🇺🇿 O‘zbekiston bayrog‘i
+//     preferredCountries: ["uz", "ru", "us"],
+//     separateDialCode: true, // kodni alohida chiqarish
+//     utilsScript:
+//       "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+//   });
+// });
 // 1️⃣ Rasmlar uchun
 Fancybox.bind('[data-fancybox="gallery"]', {
   Thumbs: {
@@ -480,4 +508,143 @@ $(".cookie_btn").click(function () {
 // Yopish tugmasi
 $(".cookie_close").click(function () {
   $(".cookie_banner").addClass("hidden");
+});
+//
+$(document).ready(function () {
+  $(".phone").each(function () {
+    const input = $(this)[0];
+    const iti = window.intlTelInput(input, {
+      initialCountry: "ru",
+      preferredCountries: ["ru", "uz", "us"],
+      separateDialCode: true,
+      nationalMode: false,
+      utilsScript:
+        "https://cdn.jsdelivr.net/npm/intl-tel-input@18.5.3/build/js/utils.js",
+    });
+
+    const masks = {
+      ru: "(999) 999-99-99",
+      uz: "(99) 999-99-99",
+      us: "(999) 999-9999",
+    };
+
+    // Dastlabki maska
+    $(input).inputmask(masks["ru"], {
+      showMaskOnHover: false,
+      clearIncomplete: true,
+    });
+
+    // 🌍 Davlat o‘zgarganda maskani yangilash
+    $(input).on("countrychange", function () {
+      const code = iti.getSelectedCountryData().iso2;
+      const newMask = masks[code] || "(999) 999-99-99";
+      $(this).inputmask("option", { mask: newMask });
+    });
+
+    // 🔍 Blur paytida validatsiya
+    $(input).on("blur", function () {
+      const $errMsg = $(this)
+        .closest(".modal_content, .modal_inputs")
+        .find(".erorrmsg")
+        .first();
+      const $btn = $(this).closest(".modal").find(".modal_btn");
+
+      if ($(this).val().trim() !== "") {
+        if (iti.isValidNumber()) {
+          $(this).removeClass("erorr");
+          $errMsg.fadeOut(200);
+          $btn.removeClass("no_send");
+        } else {
+          $(this).addClass("erorr");
+          $errMsg.fadeIn(200).css("display", "flex");
+          $btn.addClass("no_send");
+        }
+      } else {
+        $(this).removeClass("erorr");
+        $errMsg.fadeOut(200);
+        $btn.addClass("no_send");
+      }
+    });
+
+    // ⌨️ Input paytida xatoni tozalash
+    $(input).on("focus input", function () {
+      $(this).removeClass("erorr");
+      const $errMsg = $(this)
+        .closest(".modal_content, .modal_inputs")
+        .find(".erorrmsg")
+        .first();
+      const $btn = $(this).closest(".modal").find(".modal_btn");
+
+      $errMsg.fadeOut(200);
+      $btn.removeClass("no_send");
+    });
+  });
+
+  // 🟢 Tugma bosilganda
+  $(".modal_btn").on("click", function (e) {
+    e.preventDefault();
+
+    const $btn = $(this);
+    const $modal = $btn.closest(".modal");
+    const $input = $modal.find(".phone");
+    const $errMsg = $modal.find(".erorrmsg");
+    const iti = window.intlTelInputGlobals.getInstance($input[0]);
+
+    // ❗ Validatsiya
+    if ($input.val().trim() === "" || !iti.isValidNumber()) {
+      $input.addClass("erorr");
+      $errMsg.fadeIn(200).css("display", "flex");
+      $btn.addClass("no_send");
+      $input.focus();
+      return;
+    }
+
+    // ✅ Tugma "no_send" bo‘lsa to‘xtatamiz
+    if ($btn.hasClass("no_send")) return;
+
+    // ✅ Qiymatni vaqtincha saqlaymiz
+    const savedValue = $input.val();
+
+    // Loadingni yoqish
+    $btn.addClass("loadsend");
+    $btn.find(".send").fadeOut(200);
+    $btn.find(".load").fadeIn(200);
+
+    // 3 soniya kutish
+    setTimeout(() => {
+      $btn.removeClass("loadsend");
+      $btn.find(".load").fadeOut(200);
+      $btn.find(".send").fadeIn(200);
+
+      // Eski modalni yopish
+      $(".modal:not(.sucees)").fadeOut(300, function () {
+        // Input qiymatini qayta tiklaymiz
+        $input.val(savedValue);
+      });
+
+      // Success modalni ochish
+      $(".modal.sucees").delay(300).fadeIn(400);
+    }, 3000);
+  });
+
+  // ❌ Modal yopish
+  $(document).on("click", ".exit_modal", function () {
+    $(this).closest(".modal").fadeOut(300);
+  });
+});
+$(".login_open").on("click", function () {
+  $(".login").fadeIn(300);
+});
+$(".register_open").on("click", function () {
+  $(".register").fadeIn(300);
+});
+$(".info").hover(function () {
+  $(".tiltop").css("transform", "scale(1)");
+});
+$(".info").click(function () {
+  $(".tiltop").css("transform", "scale(1)");
+});
+
+$(".tiltop img").on("click", function () {
+  $(".tiltop").css("transform", "scale(0)");
 });

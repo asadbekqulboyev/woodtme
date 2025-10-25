@@ -1,0 +1,65 @@
+.policy {
+  padding-top: 30px;
+  padding-bottom: 80px;
+  @media (max-width: 992px) {
+    padding-bottom: 56px;
+  }
+  .policy_content {
+    max-width: 850px;
+    margin-left: 0;
+    h1 {
+      padding-top: 32px;
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 45.7px;
+      line-height: 48px;
+      text-transform: uppercase;
+      color: #191a19;
+      padding-bottom: 12px;
+      @media (max-width: 992px) {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 26.4px;
+        line-height: 32px;
+        text-transform: uppercase;
+        color: #191a19;
+        padding-top: 28px;
+      }
+    }
+    ul {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-left: 16px;
+      li {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 15.32px;
+        line-height: 24px;
+        color: #191a19;
+        @media (max-width: 992px) {
+          font-weight: 300;
+          font-size: 15.32px;
+          line-height: 24px;
+          color: #191a19;
+        }
+        &::marker {
+          color: #191a19;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  .section_title {
+    padding-top: 28px;
+    display: flex;
+    align-items: flex-start;
+    span {
+      color: #191a19;
+    }
+  }
+}

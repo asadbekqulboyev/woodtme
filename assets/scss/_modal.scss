@@ -1,0 +1,233 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: #0000009f;
+  padding: 0 20px;
+  display: none;
+
+  .exit_modal {
+    position: absolute;
+    top: 8px;
+    width: 40px;
+    right: 8px;
+    cursor: pointer;
+  }
+
+  &_content {
+    padding: 40px;
+    background: #fcfffd;
+    max-width: 596px;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    height: fit-content;
+    max-height: 100dvh;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    @media (max-width: 992px) {
+      padding: 40px 20px;
+    }
+    p {
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 300;
+      font-size: 15.32px;
+      line-height: 24px;
+      color: #191a19;
+      margin-top: 20px;
+      @media (max-width: 992px) {
+        font-size: 15px;
+      }
+    }
+  }
+  &_title {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 37.44px;
+    line-height: 40px;
+    color: #191a19;
+    @media (max-width: 992px) {
+      font-weight: 600;
+      font-size: 26px;
+    }
+  }
+  &_inputs {
+    margin-top: 28px;
+    &_flex {
+      display: flex;
+      gap: 20px;
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
+    }
+    .input_title {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 22.64px;
+      line-height: 32px;
+      color: #151a16;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      @media (max-width: 992px) {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 133%;
+      }
+      span {
+        color: red;
+      }
+      p {
+        font-weight: 400;
+        font-size: 12px;
+      }
+    }
+    input,
+    textarea {
+      background: #e9f2ec;
+      padding: 12px 24px;
+      outline: none;
+      border: 0;
+      width: 100%;
+      font-family: "Montserrat";
+      &.erorr {
+        border: 1px solid #df1300;
+        background: #df13001f;
+      }
+    }
+    .modal_input_item {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      .input_title {
+        p {
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 167%;
+          margin-top: 0;
+          color: #a3b8ab;
+          margin-top: 5px;
+        }
+      }
+      &.email {
+        margin-top: 20px;
+      }
+      &.bottom {
+        margin-top: 20px;
+      }
+    }
+  }
+  &_btn {
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 32px;
+    background: #3b945f;
+    outline: none;
+    border: none;
+    color: #f5faf7;
+    cursor: pointer;
+    &.loadsend {
+      background: #f7ba0012;
+      .send {
+        display: none;
+      }
+      .load {
+        display: flex;
+        gap: 4px;
+        align-items: center;
+        color: #151a1773;
+      }
+    }
+    .load {
+      display: none;
+    }
+    &.no_send {
+      cursor: not-allowed;
+      color: #151a1773;
+      background: #ccd1ce;
+    }
+  }
+  &_bottom {
+    p {
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 20px;
+      color: rgba(21, 26, 23, 0.45);
+      a {
+        color: #3b945f;
+      }
+    }
+    .erorrmsg {
+      width: 100%;
+      display: none;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 12px;
+      background: #df13001f;
+      margin-top: 40px;
+    }
+  }
+  &.sucees {
+    display: none;
+    .sucees_content {
+      max-width: 596px;
+      padding: 40px;
+      background: url(../images/bgsucces.png) no-repeat center;
+      background-size: cover;
+      margin: auto;
+      color: #fff;
+      position: absolute;
+      inset: 0;
+      height: fit-content;
+
+      @media (max-width: 992px) {
+        padding: 20px;
+        // margin: 120px auto;
+      }
+      p {
+        padding-top: 20px;
+        @media (max-width: 992px) {
+          font-size: 15px;
+          line-height: normal;
+          br {
+            display: none;
+          }
+        }
+      }
+      .modal_title {
+        color: #fff;
+        @media (max-width: 992px) {
+          font-weight: 600;
+          font-size: 26px;
+        }
+      }
+      h3 {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 22.64px;
+        line-height: 32px;
+        color: #f5faf7;
+        margin-top: 20px;
+        @media (max-width: 992px) {
+          font-size: 18px;
+          line-height: normal;
+        }
+      }
+    }
+  }
+}
