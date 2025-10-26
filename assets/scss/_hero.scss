@@ -58,6 +58,7 @@
         }
         span {
           color: #3b945f;
+          font-weight: 700;
         }
       }
       .call_buttons {
@@ -76,11 +77,14 @@
           align-items: center;
           background: #3b945f;
           color: #f5faf7;
-          font-size: 15.3px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 24px;
           text-decoration: none;
+          transition: all 0.3s ease;
+          font-weight: 400;
+          font-size: 15px;
+          line-height: 157%;
+          &:hover {
+            background: #41cc79;
+          }
           @media (max-width: 1200px) {
             font-size: 14px;
           }
@@ -92,8 +96,11 @@
           }
           &.no_bg {
             border: 1px solid #3b945f;
-            background: #fff;
-            color: #3b945f;
+            background: #fcfffd;
+            color: #4a4d4b;
+            &:hover {
+              color: #41cc79;
+            }
           }
         }
       }
@@ -138,18 +145,17 @@
       }
       &_title {
         color: #191a19;
-        font-size: 15.32px;
-        font-style: normal;
         font-weight: 600;
-        line-height: 20px;
+        font-size: 15px;
+        line-height: 131%;
       }
       p {
         color: #4a4d4b;
         font-size: 12px;
         font-style: normal;
         font-weight: 400;
-        line-height: 20px;
         margin-top: 4px;
+        line-height: 136%;
       }
     }
     &_img {
@@ -163,6 +169,8 @@
       justify-content: center;
     }
     &_right {
+      max-height: 524px;
+      line-height: 0;
       @media (max-width: 992px) {
         width: calc(100% + 40px);
         margin-left: -20px;

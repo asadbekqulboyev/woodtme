@@ -3,7 +3,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
+
 @import "header";
 @import "hero";
 @import "steps";
@@ -18,14 +20,18 @@
 @import "not_found";
 @import "modal";
 body {
-  background: #fff;
+  background: #fcfffd;
   color: #191a19;
   font-family: "Montserrat";
   font-size: 15.32px;
   font-style: normal;
   font-weight: 300;
   line-height: 24px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
+
 .wrapper {
   overflow: hidden;
 }

@@ -17,15 +17,17 @@
     }
     &_left {
       color: #d3f0de;
-      font-size: 22.64px;
-      font-style: normal;
       font-weight: 500;
-      line-height: 32px;
-      width: calc(57% - 20px);
+      font-size: 22px;
+      line-height: 141%;
+      width: calc(56% - 20px);
       @media (max-width: 992px) {
         line-height: 24px;
         width: 100%;
         font-size: 18px;
+      }
+      span {
+        color: #f5faf7;
       }
     }
     &_right {
