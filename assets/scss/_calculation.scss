@@ -133,7 +133,7 @@
         color: #151a16;
         font-size: 22.64px;
         font-style: normal;
-        font-weight: 500;
+        font-weight: 400;
         line-height: 32px;
         margin-bottom: 12px;
         display: flex;
@@ -142,7 +142,7 @@
         @media (max-width: 992px) {
           font-size: 18px;
           font-style: normal;
-          font-weight: 500;
+          font-weight: 400;
           line-height: 24px;
           flex-direction: column;
           align-items: flex-start;
@@ -185,7 +185,7 @@
         color: #191a19;
         font-size: 15.32px;
         font-style: normal;
-        font-weight: 300;
+        font-weight: 200;
         line-height: 24px;
         outline: none;
         border: 1px solid transparent;
@@ -222,7 +222,7 @@
         top: 24px;
         transform: translateY(-50%);
         color: #666;
-        font-weight: 500;
+        font-weight: 400;
         pointer-events: none;
         z-index: 2;
       }
@@ -296,7 +296,7 @@
         font-size: 1.3em;
       }
       .result-label {
-        font-weight: 500;
+        font-weight: 400;
       }
       .result-value {
         font-weight: 600;
@@ -477,7 +477,7 @@
             color: #191a19;
             font-size: 15.32px;
             font-style: normal;
-            font-weight: 300;
+            font-weight: 200;
             line-height: 24px;
           }
           .result-value {
@@ -486,7 +486,7 @@
             text-overflow: ellipsis;
             font-size: 22.64px;
             font-style: normal;
-            font-weight: 500;
+            font-weight: 400;
             line-height: 32px;
             @media (max-width: 992px) {
               font-size: 18px;
@@ -588,7 +588,7 @@
         color: #191a19;
         font-size: 15.32px;
         font-style: normal;
-        font-weight: 300;
+        font-weight: 200;
         line-height: 24px;
         padding: 12px 40px;
         @media (max-width: 992px) {

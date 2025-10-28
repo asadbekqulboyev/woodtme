@@ -37,7 +37,7 @@
 .header_top a {
   color: #191a19;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 24px;
   text-decoration: none;
 }
@@ -101,7 +101,7 @@
   color: #191a19;
   font-style: normal;
   text-decoration: none;
-  font-weight: 300;
+  font-weight: 200;
   padding-bottom: 2px;
   border-bottom: 1px solid transparent;
   display: block;
@@ -116,7 +116,7 @@
   .header .menu__body .menu__list a {
     font-size: 15.32px;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 200;
     line-height: 24px; /* 156.658% */
   }
 }
@@ -137,7 +137,7 @@
   color: #191a19;
   font-size: 22.64px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 141%;
   text-decoration: none;
   gap: 4px;
@@ -308,7 +308,7 @@
 .hero_top_right .call_title {
   color: #191a19;
   font-size: 22.64px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 32px;
   padding-right: 30px;
 }
@@ -498,7 +498,7 @@
 }
 .steps_top_left {
   color: #d3f0de;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 22px;
   line-height: 141%;
   width: calc(56% - 20px);
@@ -525,7 +525,7 @@
   color: #f5faf7;
   font-size: 22.64px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 32px;
 }
 @media (max-width: 992px) {
@@ -578,7 +578,6 @@
   transition: all 0.3s ease;
   opacity: 0.5;
   cursor: pointer;
-  padding: 20px;
 }
 @media (max-width: 992px) {
   .steps_list .steps_item {
@@ -595,6 +594,7 @@
   background: #5c7164;
   opacity: 1;
   padding-right: 0;
+  padding: 0 0 0 20px;
 }
 .steps_list .steps_item.active svg {
   transform: rotate(180deg);
@@ -609,6 +609,9 @@
 .steps_list .steps_item.active svg path {
   stroke: #41cc79;
 }
+.steps_list .steps_item.active .steps_header {
+  padding: 20px 0 0;
+}
 .steps_list .steps_item:hover {
   border-color: #3ee78b;
   opacity: 1;
@@ -618,11 +621,12 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  padding: 20px;
   transition: all 0.3s ease;
 }
 .steps_list .steps_item .steps_header_left {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 20px;
 }
 @media (max-width: 992px) {
@@ -641,7 +645,7 @@
   color: #f5faf7;
   font-size: 22.64px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 32px;
 }
 @media (max-width: 992px) {
@@ -658,11 +662,11 @@
 }
 .steps_list .steps_item .steps_body .steps_text {
   color: #d3f0de;
-  padding-bottom: 20px;
+  padding-bottom: 0px;
   color: #d3f0de;
   font-size: 15.32px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 200;
   line-height: 24px;
   padding-right: 20px;
 }
@@ -678,25 +682,20 @@
   margin-top: 12px;
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 .steps_list .steps_item .steps_body .steps_text ul li {
   position: relative;
-  padding-left: 18px;
-  margin-bottom: 8px;
-}
-.steps_list .steps_item .steps_body .steps_text ul li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: #3ee78b;
-  width: 8px;
-  height: 8px;
-  font-size: 59px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .steps_list .steps_item .steps_body .steps_images {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
+  gap: 8px;
   width: calc(50% + 12px);
   margin-right: -20px;
   overflow-x: auto;
@@ -718,7 +717,6 @@
   border-radius: 16px;
 }
 .steps_list .steps_item .steps_body .steps_images img {
-  width: 49%;
   object-fit: cover;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -742,7 +740,7 @@
 .steps_list .steps_item.active .steps_body {
   max-height: 800px;
   opacity: 1;
-  padding-bottom: 24px;
+  padding-bottom: 20px;
 }
 @media (max-width: 992px) {
   .steps_list .steps_item.active .steps_body {
@@ -799,11 +797,16 @@
   }
 }
 .ukls_section .ukls_table_content {
-  overflow-x: auto;
-  width: calc(100% + 40px);
-  margin-left: -20px;
   padding-left: 20px;
   padding-right: 20px;
+  margin-left: -20px;
+  overflow: hidden;
+}
+@media (max-width: 1200px) {
+  .ukls_section .ukls_table_content {
+    overflow-x: auto;
+    width: calc(100% + 40px);
+  }
 }
 .ukls_section .ukls_table {
   width: 100%;
@@ -1102,7 +1105,7 @@
   color: #151a16;
   font-size: 22.64px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 32px;
   margin-bottom: 12px;
   display: flex;
@@ -1113,7 +1116,7 @@
   .calculation_content .form_step .input_title {
     font-size: 18px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 24px;
     flex-direction: column;
     align-items: flex-start;
@@ -1156,7 +1159,7 @@
   color: #191a19;
   font-size: 15.32px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 200;
   line-height: 24px;
   outline: none;
   border: 1px solid transparent;
@@ -1192,7 +1195,7 @@
   top: 24px;
   transform: translateY(-50%);
   color: #666;
-  font-weight: 500;
+  font-weight: 400;
   pointer-events: none;
   z-index: 2;
 }
@@ -1266,7 +1269,7 @@
   font-size: 1.3em;
 }
 .calculation_content .form_step .result-label {
-  font-weight: 500;
+  font-weight: 400;
 }
 .calculation_content .form_step .result-value {
   font-weight: 600;
@@ -1455,7 +1458,7 @@
   color: #191a19;
   font-size: 15.32px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 200;
   line-height: 24px;
 }
 .calculation_content_result .result-white .result-line .result-value {
@@ -1464,7 +1467,7 @@
   text-overflow: ellipsis;
   font-size: 22.64px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 32px;
 }
 @media (max-width: 992px) {
@@ -1573,7 +1576,7 @@
   color: #191a19;
   font-size: 15.32px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 200;
   line-height: 24px;
   padding: 12px 40px;
 }
@@ -1715,7 +1718,7 @@
   color: #d3f0de;
   font-size: 22.64px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 32px;
 }
 @media (max-width: 992px) {
@@ -1904,7 +1907,7 @@
   color: #191a19;
   font-size: 15.32px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 200;
   line-height: 24px;
 }
 .prices_item_body .prices_item_content p {
@@ -1913,7 +1916,7 @@
   text-overflow: ellipsis;
   font-size: 22.64px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 32px;
 }
 @media (max-width: 992px) {
@@ -2033,7 +2036,7 @@
   color: #191a19;
   font-size: 15.32px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 200;
   line-height: 24px;
   margin-top: 20px;
 }
@@ -2065,7 +2068,7 @@
   color: #151a16;
   font-size: 22.64px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 32px;
   display: flex;
   align-items: center;
@@ -2092,7 +2095,7 @@
   color: #a3b8ab;
   font-size: 15.32px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 200;
   line-height: 24px;
   padding: 12px 24px;
   border: 0;
@@ -2103,7 +2106,7 @@
   color: #a3b8ab;
   font-size: 15.32px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 200;
   line-height: 24px;
 }
 .forms .container .form_flex textarea {
@@ -2195,7 +2198,7 @@
   color: #f5faf7;
   font-size: 22.64px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 32px;
   text-decoration: none;
   transition: all 0.2s linear;
@@ -2224,7 +2227,7 @@
   color: #f5faf7;
   font-size: 22.64px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   text-decoration: none;
   line-height: 32px;
 }
@@ -2382,14 +2385,14 @@
 .policy .policy_content ul li {
   font-family: "Montserrat";
   font-style: normal;
-  font-weight: 300;
+  font-weight: 200;
   font-size: 15.32px;
   line-height: 24px;
   color: #191a19;
 }
 @media (max-width: 992px) {
   .policy .policy_content ul li {
-    font-weight: 300;
+    font-weight: 200;
     font-size: 15.32px;
     line-height: 24px;
     color: #191a19;
@@ -2447,7 +2450,7 @@
   margin-top: 20px;
   font-family: "Montserrat";
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 22.64px;
   line-height: 32px;
   text-align: center;
@@ -2525,7 +2528,7 @@
 .modal_content p {
   font-family: "Montserrat";
   font-style: normal;
-  font-weight: 300;
+  font-weight: 200;
   font-size: 15.32px;
   line-height: 24px;
   color: #191a19;
@@ -2564,7 +2567,7 @@
 }
 .modal_inputs .input_title {
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 22.64px;
   line-height: 32px;
   color: #151a16;
@@ -2574,7 +2577,7 @@
 }
 @media (max-width: 992px) {
   .modal_inputs .input_title {
-    font-weight: 500;
+    font-weight: 400;
     font-size: 18px;
     line-height: 133%;
   }
@@ -2717,7 +2720,7 @@
 }
 .modal.sucees .sucees_content h3 {
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 22.64px;
   line-height: 32px;
   color: #f5faf7;
@@ -2736,7 +2739,7 @@ body {
   font-family: "Montserrat";
   font-size: 15.32px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 200;
   line-height: 24px;
 }
 body::-webkit-scrollbar {
@@ -2870,7 +2873,7 @@ main {
   text-decoration: none;
   font-family: "Montserrat";
   font-style: normal;
-  font-weight: 300;
+  font-weight: 200;
   font-size: 15.32px;
   line-height: 24px;
   color: rgba(21, 26, 23, 0.45);

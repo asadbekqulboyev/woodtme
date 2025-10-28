@@ -3,7 +3,19 @@ $(".header__hamburger").on("click", function () {
   $(".header__menu").toggleClass("active");
 });
 // steps
-$(".steps_header").on("click", function () {
+$(".steps_header").on("click", function (e) {
+  const $target = $(e.target); // qaysi element bosilganini olamiz
+
+  // Agar bosilgan element .steps_number, .steps_title yoki .steps_header_left bo‘lsa — chiqamiz
+  if (
+    $target.closest(".steps_number").length ||
+    $target.closest(".steps_title").length ||
+    $target.closest(".steps_header_left").length
+  ) {
+    return; // hech narsa qilmaymiz
+  }
+
+  // Aks holda .steps_header yoki ichidagi svg bosilganda ishlaydi
   const parent = $(this).closest(".steps_item");
   if (parent.hasClass("active")) {
     parent.removeClass("active");
@@ -12,6 +24,7 @@ $(".steps_header").on("click", function () {
     parent.addClass("active");
   }
 });
+
 // calculation
 
 // Данные по расходу электроэнергии и циклам сушки
@@ -462,6 +475,12 @@ $(".calculation_buttons a").click(function () {
 // });
 // 1️⃣ Rasmlar uchun
 Fancybox.bind('[data-fancybox="gallery"]', {
+  Thumbs: {
+    autoStart: true,
+  },
+});
+
+Fancybox.bind('[data-fancybox="gallery2"]', {
   Thumbs: {
     autoStart: true,
   },

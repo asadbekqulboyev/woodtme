@@ -17,7 +17,7 @@
     }
     &_left {
       color: #d3f0de;
-      font-weight: 500;
+      font-weight: 400;
       font-size: 22px;
       line-height: 141%;
       width: calc(56% - 20px);
@@ -39,7 +39,7 @@
         color: #f5faf7;
         font-size: 22.64px;
         font-style: normal;
-        font-weight: 500;
+        font-weight: 400;
         line-height: 32px;
         @media (max-width: 992px) {
           font-size: 18px;
@@ -83,7 +83,7 @@
       transition: all 0.3s ease;
       opacity: 0.5;
       cursor: pointer;
-      padding: 20px;
+
       @media (max-width: 992px) {
         padding: 12px;
       }
@@ -97,6 +97,7 @@
         background: #5c7164;
         opacity: 1;
         padding-right: 0;
+        padding: 0 0 0 20px;
         svg {
           transform: rotate(180deg);
           margin-right: 20px;
@@ -107,6 +108,9 @@
           path {
             stroke: #41cc79;
           }
+        }
+        .steps_header {
+          padding: 20px 0 0;
         }
       }
       &:hover {
@@ -119,10 +123,11 @@
         align-items: center;
         justify-content: space-between;
         gap: 12px;
+        padding: 20px;
         transition: all 0.3s ease;
         &_left {
           display: flex;
-          align-items: flex-start;
+          align-items: center;
           gap: 20px;
           @media (max-width: 992px) {
             gap: 12px;
@@ -140,7 +145,7 @@
           color: #f5faf7;
           font-size: 22.64px;
           font-style: normal;
-          font-weight: 500;
+          font-weight: 400;
           line-height: 32px;
           @media (max-width: 992px) {
             font-size: 18px;
@@ -156,11 +161,11 @@
         transition: all 0.5s ease;
         .steps_text {
           color: #d3f0de;
-          padding-bottom: 20px;
+          padding-bottom: 0px;
           color: #d3f0de;
           font-size: 15.32px;
           font-style: normal;
-          font-weight: 300;
+          font-weight: 200;
           line-height: 24px;
           padding-right: 20px;
           @media (max-width: 992px) {
@@ -174,19 +179,14 @@
             margin-top: 12px;
             list-style: none;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
             li {
               position: relative;
-              padding-left: 18px;
-              margin-bottom: 8px;
-              &::before {
-                content: "•";
-                position: absolute;
-                left: 0;
-                color: #3ee78b;
-                width: 8px;
-                height: 8px;
-                font-size: 59px;
-              }
+              display: flex;
+              align-items: center;
+              gap: 8px;
             }
           }
         }
@@ -194,7 +194,7 @@
         .steps_images {
           display: flex;
           justify-content: space-between;
-          gap: 12px;
+          gap: 8px;
           width: calc(50% + 12px);
           margin-right: -20px;
           overflow-x: auto;
@@ -213,7 +213,6 @@
             border-radius: 16px;
           }
           img {
-            width: 49%;
             object-fit: cover;
             border: 1px solid rgba(255, 255, 255, 0.1);
           }
@@ -236,7 +235,7 @@
       &.active .steps_body {
         max-height: 800px;
         opacity: 1;
-        padding-bottom: 24px;
+        padding-bottom: 20px;
         @media (max-width: 992px) {
           padding-bottom: 0px;
         }
