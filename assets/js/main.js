@@ -172,17 +172,17 @@ function calculateDrying() {
               </div>
               <div class="result-line">
                 <span class="result-label">Расход на 1 м³:</span>
-                <span class="result-value">≈ ${kwhPerCubicMeter} кВт*ч</span>
+                <span class="result-value">${kwhPerCubicMeter} кВт×ч</span>
               </div>
             </div>
             <div class="result-highlight">
               <div class="result-line">
                 <span class="result-label">Расход на ${ukls} м³:</span>
-                <span class="result-value">${totalKwh} кВт*ч</span>
+                <span class="result-value">${totalKwh} кВт×ч</span>
               </div>
               <div class="result-line">
                 <span class="result-label">Счет за электроэнергию:</span>
-                <span class="result-value">${totalCost} руб.</span>
+                <span class="result-value">${totalCost} ₽</span>
               </div>
             </div>
           </div>
@@ -654,7 +654,8 @@ $(document).ready(function () {
 $(".login_open").on("click", function () {
   $(".login").fadeIn(300);
 });
-$(".register_open").on("click", function () {
+$(".register_open").on("click", function (e) {
+  e.preventDefault();
   $(".register").fadeIn(300);
 });
 $(".info").hover(function () {

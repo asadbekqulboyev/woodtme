@@ -1276,7 +1276,7 @@
   color: #0d5e2a;
 }
 .calculation_content .form_step .input-fields {
-  margin-top: 28px;
+  margin-top: 40px;
 }
 @keyframes slideIn {
   from {
@@ -1588,6 +1588,7 @@
 .calculation .form_button {
   display: flex;
   gap: 20px;
+  margin-top: 40px;
 }
 .calculation .form_button button {
   background: #fff;
@@ -1763,6 +1764,9 @@
   .gallery {
     padding: 48px 0 0;
   }
+}
+.gallery .section_title span {
+  color: inherit;
 }
 @media (max-width: 992px) {
   .gallery .section_title {

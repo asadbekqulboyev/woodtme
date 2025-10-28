@@ -2,7 +2,11 @@
   @media (max-width: 992px) {
     padding: 48px 0 0;
   }
+
   .section_title {
+    span {
+      color: inherit;
+    }
     @media (max-width: 992px) {
       line-height: 28px;
       span:first-child {
